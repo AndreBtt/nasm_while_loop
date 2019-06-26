@@ -13,14 +13,14 @@ SECTION .text
     while:
         mov eax, %1 ; atribui o valor do primeiro parametro ao registrador eax
         loop:
-            cmp eax, %2	; verifica se eax (primeiro parametro) é igual ao segundo parametro 
+            cmp eax, %2	; verifica se eax (primeiro parametro) é igual ao segundo parametro
             je fim_while ; Se a condição de cima for verdadeira devemos sair do while (je = jump if equal)
-            push eax	; Botar eax na pilha para salvar seu valor	
+            push eax	; Botar eax na pilha para salvar seu valor
 
             mov eax, 4	; Mandando informaçao para o kernel que vamos escrever algo
             mov ebx, 1	; Especificando que sera pelo STDOUT
             mov ecx, msg	; Mandando o msg
-            mov edx, tam	; Mandando o tamanho da msg 
+            mov edx, tam	; Mandando o tamanho da msg
             int 0x80	; Fazendo a chamado do kernel
 
             pop eax	; Pegando novamente o valor de eax da pilha
